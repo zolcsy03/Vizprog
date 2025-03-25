@@ -1,1 +1,1 @@
-# Vizprog
+Fejleszti : Halász Ákos, Ollé Zoltán
