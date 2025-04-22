@@ -1,0 +1,93 @@
+﻿<Window x:Class="Valutavalto.Fooldal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Valutavalto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        Style="{StaticResource MaterialDesignWindow}"
+        mc:Ignorable="d"
+
+        Title="Valutaváltó" Height="450" Width="800"
+        Background="#FF121212"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Fejléc -->
+        <DockPanel Grid.Row="0" LastChildFill="False" Margin="0 0 0 20">
+            <TextBlock Text="Felhasználónév" 
+                       FontSize="16" Foreground="White"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Center"
+                       DockPanel.Dock="Left"/>
+
+            <TextBlock Text="Egyenleg: 1000 HUF"
+                       FontSize="16" Foreground="White"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Center"
+                       DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <!-- Középső rész: átváltó -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+
+            <!-- Beviteli mező: összeg -->
+            <TextBox Margin="0,0,0,10"
+                     materialDesign:HintAssist.Hint="Összeg"
+                     Foreground="LightGray"
+
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <!-- Legördülők: valuták -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                
+
+                <ComboBox Width="180"
+                          Style="{StaticResource MaterialDesignComboBox}"
+                          Foreground="LightGray"
+
+                          materialDesign:HintAssist.Hint="Forrás valuta"
+                          Margin="0,0,10,0">
+                    <ComboBoxItem Content="HUF"/>
+                    <ComboBoxItem Content="EUR"/>
+                    <ComboBoxItem Content="USD"/>
+                </ComboBox>
+
+                <ComboBox Width="180"
+                          Foreground="LightGray"
+
+                          Style="{StaticResource MaterialDesignComboBox}"
+                          materialDesign:HintAssist.Hint="Cél valuta"/>
+            </StackPanel>
+
+            <!-- Eredmény mező -->
+            <TextBox Margin="0,0,0,20"
+                     materialDesign:HintAssist.Hint="Átváltott összeg"
+                     Foreground="LightGray"
+
+                     IsReadOnly="True"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <!-- Gombok -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Átváltás"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="100" Margin="0,0,10,0" />
+
+                <Button Content="Reset"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Width="100" Margin="0,0,10,0" />
+
+                <Button Content="Kijelentkezés"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        Width="120" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
